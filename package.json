@@ -1,0 +1,25 @@
+{
+  "name": "warriorsbattle",
+  "version": "1.0.0",
+  "description": "### JS Mega-K 5.3 - exercise 'live'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebgancarz/warriors-battle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebgancarz/warriors-battle/issues"
+  },
+  "homepage": "https://github.com/sebgancarz/warriors-battle#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1"
+  }
+}
