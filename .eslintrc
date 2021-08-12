@@ -7,5 +7,8 @@
   },
   "parser": "babel-eslint",
   "extends": "airbnb",
-  "rules": {}
+  "rules": {
+    "no-console": "off",
+    "lines-between-class-members": ["error", "never"]
+  }
 }

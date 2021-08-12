@@ -1,47 +1,45 @@
 class Warrior {
-	constructor(name, hitPoints, healthPoints) {
-		this.name = name;
-		this.hitPoints = hitPoints;
-		this.healthPoints = healthPoints;
-	}
-
-	setHealthPoints(healthPoints) {
-	  this.healthPoints = healthPoints;
+  // private fields / properties
+  #name;
+  #attack;
+  #hp;
+  constructor(name, attack, hp) {
+    this.#name = name;
+    this.#attack = attack;
+    this.#hp = hp;
   }
-
-	getHealthPoints() {
-	  return this.healthPoints;
+  setHealthPoints(hp) {
+    this.#hp = hp;
   }
-
-	getHitPoints() {
-	  return this.hitPoints
+  getHealthPoints() {
+    return this.#hp;
   }
-
+  getHitPoints() {
+    return this.#attack;
+  }
   getName() {
-    return this.name;
+    return this.#name;
   }
-
-  levelUp () {
-    this.hitPoints *= 1.1;
-    this.healthPoints *= 1.1;
+  levelUp() {
+    this.#attack *= 1.1;
+    this.#hp *= 1.1;
   }
 }
 
 class Arena {
   constructor(warrior1, warrior2) {
     if (!(warrior1 instanceof Warrior)) {
-      throw new Error('warrior1 must be a instance of Warrior class!')
+      throw new Error('warrior1 must be a instance of Warrior class!');
     }
 
     if (!(warrior2 instanceof Warrior)) {
-      throw new Error('warrior2 must be a instance of Warrior class!')
+      throw new Error('warrior2 must be a instance of Warrior class!');
     }
 
     this.warrior1 = warrior1;
     this.warrior2 = warrior2;
     this.activeWarrior = 1;
   }
-
   fight() {
     const attacker = this.activeWarrior === 1 ? this.warrior1 : this.warrior2;
     const attacked = this.activeWarrior === 1 ? this.warrior2 : this.warrior1;
@@ -67,7 +65,7 @@ class Arena {
 const fighter1 = new Warrior('Baba Yaga', 9, 120);
 const fighter2 = new Warrior('Yanosik', 7, 140);
 
-const arena = new Arena(fighter1, fighter2)
+const arena = new Arena(fighter1, fighter2);
 
 let winner;
 do {
