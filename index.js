@@ -8,13 +8,13 @@ class Warrior {
     this.#attack = attack;
     this.#hp = hp;
   }
-  setHealthPoints(hp) {
+  setHp(hp) {
     this.#hp = hp;
   }
-  getHealthPoints() {
+  getHp() {
     return this.#hp;
   }
-  getHitPoints() {
+  getAttack() {
     return this.#attack;
   }
   getName() {
@@ -44,13 +44,13 @@ class Arena {
     const attacker = this.activeWarrior === 1 ? this.warrior1 : this.warrior2;
     const attacked = this.activeWarrior === 1 ? this.warrior2 : this.warrior1;
 
-    const attackingHitPoints = attacker.getHitPoints();
-    const attackedOldHealthPoints = attacked.getHealthPoints();
+    const attackingHitPoints = attacker.getAttack();
+    const attackedOldHealthPoints = attacked.getHp();
     const attackedNewHealthPoints = attackedOldHealthPoints - attackingHitPoints;
 
     console.log(`${attacker.getName()} is attacking ${attacked.getName()} and now he has ${attackedNewHealthPoints} hp`);
 
-    attacked.setHealthPoints(attackedNewHealthPoints);
+    attacked.setHp(attackedNewHealthPoints);
 
     this.activeWarrior = this.activeWarrior === 1 ? 2 : 1;
 
