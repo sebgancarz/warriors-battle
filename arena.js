@@ -1,3 +1,4 @@
+const { random } = require('./utils');
 const { Warrior } = require('./warrior');
 
 class Arena {
@@ -14,24 +15,24 @@ class Arena {
 
     this.#warrior1 = warrior1;
     this.#warrior2 = warrior2;
-    this.activeWarrior = 1;
+    this.activeWarrior = random(1, 2);
   }
   fight() {
     const attacker = this.activeWarrior === 1 ? this.#warrior1 : this.#warrior2;
-    const attacked = this.activeWarrior === 1 ? this.#warrior2 : this.#warrior1;
+    const defender = this.activeWarrior === 1 ? this.#warrior2 : this.#warrior1;
 
     const attackingAttack = attacker.getAttack();
-    const attackedOldHp = attacked.getHp();
+    const attackedOldHp = defender.getHp();
     const attackedNewHp = attackedOldHp - attackingAttack;
 
-    console.log(`${attacker.getName()} is attacking ${attacked.getName()} and now he has ${attackedNewHp} hp`);
+    console.log(`${attacker.getName()} is attacking ${defender.getName()} and now he has ${attackedNewHp} hp`);
 
-    attacked.setHp(attackedNewHp);
+    defender.setHp(attackedNewHp);
 
     this.activeWarrior = this.activeWarrior === 1 ? 2 : 1;
 
     if (attackedNewHp <= 0) {
-      console.log(`${attacked.getName()} goes to Valhalla.`);
+      console.log(`${defender.getName()} goes to Valhalla.`);
       return attacker;
     }
     return null;

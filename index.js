@@ -1,10 +1,11 @@
 const { Warrior } = require('./warrior');
 const { Arena } = require('./arena');
+const { random } = require('./utils');
 
-const fighter1 = new Warrior('Baba Yaga', 9, 120);
-const fighter2 = new Warrior('Yanosik', 7, 140);
-
-const arena = new Arena(fighter1, fighter2);
+const arena = new Arena(
+  new Warrior('Baba Yaga', random(5, 9), random(90, 120)),
+  new Warrior('Yanosik', random(4, 8), random(100, 130)),
+);
 
 let winner;
 do {
